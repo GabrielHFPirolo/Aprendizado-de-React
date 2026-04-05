@@ -1,30 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTask from "./components/AddTask.jsx";
 import Tasks from "./components/Tasks.jsx";
 import "./index.css";
 import { v4 } from "uuid";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "My first task",
-      description: "Learn React",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      title: "My Second task",
-      description: "Learn ....",
-      isCompleted: false,
-    },
-    {
-      id: 3,
-      title: "My third task",
-      description: "Study ....",
-      isCompleted: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")));
+
+  // Executa a função sempre que um valor da lista for Alterado -> Hook UseEffects
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   function onTaskClick(taskId) {
     const newTasks = tasks.map((tasks) => {
