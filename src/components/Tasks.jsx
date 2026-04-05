@@ -1,5 +1,6 @@
 import { ChevronRightIcon, Trash2Icon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Button from "./Button";
 
 //Componente será toda função que retorna um JSX
 function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
@@ -22,18 +23,18 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
           >
             {tasks.title}
           </button>
-          <button
+          <Button
             onClick={() => onSeeDetailsClick(tasks)}
             className="bg-slate-400 text-white p-2 rounded-md"
           >
             <ChevronRightIcon />
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => onDeleteTaskClick(tasks.id)}
             className="bg-slate-400 text-white p-2 rounded-md"
           >
             <Trash2Icon />
-          </button>
+          </Button>
         </li>
       ))}
     </ul>

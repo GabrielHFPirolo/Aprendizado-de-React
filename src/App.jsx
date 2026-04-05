@@ -12,6 +12,25 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
+  /*
+  //Exemplo para chamada de API utilizando REACT e UseEffect
+  useEffect(() => {
+    async function fetchTasksAPI() {
+      //Chamar API
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos?_limit=10",
+      );
+
+      //Pegar os dados da API
+      const data = await response.json();
+
+      //Persistir esses dados dentro do state
+      setTasks(data);
+    }
+    fetchTasksAPI();
+  }, []); //chama o useEffects apenas 1 vez -> usuário acessa a aplicação
+  */
+
   function onTaskClick(taskId) {
     const newTasks = tasks.map((tasks) => {
       if (tasks.id === taskId) {
