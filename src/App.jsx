@@ -1,18 +1,14 @@
-import { useState } from "react";
+import AddTask from "./components/AddTask.jsx";
+import Tasks from "./components/Tasks.jsx";
+import "./index.css";
 
 function App() {
   //  State -> variável alterada que atualiza interface -> resposta interação user
-  const [message, setMessage] = useState("Hello World!");
   return (
     <div>
-      <h1>{message}</h1>
-      <button
-        onClick={() => {
-          setMessage("World Hello!");
-        }}
-      >
-        Change Message
-      </button>
+      <h1 className="text-red-500">Tasks Manager</h1>
+      <Tasks />
+      <AddTask />
     </div>
   );
 }
